@@ -1,0 +1,123 @@
+<div class="card">
+    <div class="card-header" >
+        <b class="pt-2">Add Car Details</b>
+      </div>
+    <div class="card-body">
+        <form [formGroup]="addCarform">
+            <div class="col-lg-12 d-flex">
+                <div class="col-lg-4 p-2">
+                    <label >Vehicle Name <span class="mandatory">*</span></label>
+                    <input  type="text" class="form-control form-control-sm-sm" formControlName="name" placeholder="Vehicle Name"
+                    [ngClass]="{ 'is-invalid': (submitted || addCarform.controls['name'].touched) && addCarform.controls['name'].errors }">
+                    <div *ngIf="(submitted ||addCarform.controls['name'].touched) && addCarform.controls['name'].errors"
+                    class="invalid-feedback">
+                    <div *ngIf="addCarform.controls['name'].errors?.['required']">Field Required</div>
+                  </div>
+                </div>
+                <div class="col-lg-4 p-2">
+                  <label >Vehicle Hire Price Per Day <span class="mandatory">*</span></label>
+                  <input  type="text" class="form-control form-control-sm-sm" formControlName="price" placeholder="Vehicle Hire Price Per Day"
+                  [ngClass]="{ 'is-invalid': (submitted || addCarform.controls['price'].touched) && addCarform.controls['price'].errors }">
+                  <div *ngIf="(submitted ||addCarform.controls['price'].touched) && addCarform.controls['price'].errors"
+                  class="invalid-feedback">
+                  <div *ngIf="addCarform.controls['price'].errors?.['required']">Field Required</div>
+                </div>
+              </div>
+           
+                <div class="col-lg-4 p-2">
+                    <label >Vehicle Number <span class="mandatory">*</span></label>
+                    <input  type="text" class="form-control form-control-sm-sm" formControlName="number" placeholder="Vehicle Number"
+                    [ngClass]="{ 'is-invalid': (submitted || addCarform.controls['number'].touched) && addCarform.controls['number'].errors }">
+                    <div *ngIf="(submitted ||addCarform.controls['number'].touched) && addCarform.controls['number'].errors"
+                    class="invalid-feedback">
+                    <div *ngIf="addCarform.controls['number'].errors?.['required']">Field Required</div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-12 d-flex">
+
+                <div class="col-lg-4 p-2">
+                    <label >Vehicle Seating Capacity <span class="mandatory">*</span></label>
+                    <input  type="text" class="form-control form-control-sm-sm" formControlName="seat" placeholder="Vehicle Seating Capacity"
+                    [ngClass]="{ 'is-invalid': (submitted || addCarform.controls['seat'].touched) && addCarform.controls['seat'].errors }">
+                    <div *ngIf="(submitted ||addCarform.controls['seat'].touched) && addCarform.controls['seat'].errors"
+                    class="invalid-feedback">
+                    <div *ngIf="addCarform.controls['seat'].errors?.['required']">Field Required</div>
+                  </div>
+                </div>
+      
+               
+            </div>
+            <b class="pt-2">Vehicle Pickup Location Address</b>
+            <div class="col-lg-12 d-flex">
+              <div class="col-lg-3 p-2">
+                  <label>Address Line 1 <span class="mandatory">*</span></label>
+                  <input class="form-control"  placeholder="Address Line 1"  formControlName="addLine1"
+                  [ngClass]="{ 'is-invalid': (submitted || addCarform.controls['addLine1'].touched) && addCarform.controls['addLine1'].errors }">
+                  <div *ngIf="(submitted ||addCarform.controls['addLine1'].touched) && addCarform.controls['addLine1'].errors"
+                    class="invalid-feedback">
+                    <div *ngIf="addCarform.controls['addLine1'].errors?.['required']">Field Required</div>
+                  </div>
+              </div>
+              <div class="col-lg-3 p-2">
+                  <label>Address Line 2</label>
+                  <input class="form-control" formControlName="addLine2" placeholder="Address Line 2"
+                  [ngClass]="{ 'is-invalid': (submitted || addCarform.controls['addLine2'].touched) && addCarform.controls['addLine2'].errors }">
+              </div>
+              <div class="col-lg-3 p-2">
+                  <label>Country <span class="mandatory">*</span></label>
+                  <input class="form-control" placeholder="Country" formControlName="country"
+                  [ngClass]="{ 'is-invalid': (submitted || addCarform.controls['country'].touched) && addCarform.controls['country'].errors }">
+                  <div *ngIf="(submitted ||addCarform.controls['country'].touched) && addCarform.controls['country'].errors"
+                    class="invalid-feedback">
+                    <div *ngIf="addCarform.controls['country'].errors?.['required']">Field Required</div>
+                  </div>
+              </div>
+              <div class="col-lg-3 p-2">
+                  <label>State <span class="mandatory">*</span></label>
+                  <input class="form-control"   placeholder="State" formControlName="state"
+                  [ngClass]="{ 'is-invalid': (submitted || addCarform.controls['state'].touched) && addCarform.controls['state'].errors }">
+                  <div *ngIf="(submitted ||addCarform.controls['state'].touched) && addCarform.controls['state'].errors"
+                    class="invalid-feedback">
+                    <div *ngIf="addCarform.controls['state'].errors?.['required']">Field Required</div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-12 d-flex">
+            <div class="col-lg-3 p-2">
+                <label>City <span class="mandatory">*</span></label>
+                <input class="form-control"  placeholder="City"  formControlName="city"
+                [ngClass]="{ 'is-invalid': (submitted || addCarform.controls['city'].touched) && addCarform.controls['city'].errors }">
+                <div *ngIf="(submitted ||addCarform.controls['city'].touched) && addCarform.controls['city'].errors"
+                    class="invalid-feedback">
+                    <div *ngIf="addCarform.controls['city'].errors?.['required']">Field Required</div>
+                  </div>
+            </div>
+            <div class="col-lg-3 p-2">
+                <label>Zipcode <span class="mandatory">*</span></label>
+                <input class="form-control"   placeholder="Zipcode" formControlName="zipcode"
+                [ngClass]="{ 'is-invalid': (submitted || addCarform.controls['zipcode'].touched) && addCarform.controls['zipcode'].errors }">
+                <div *ngIf="(submitted ||addCarform.controls['zipcode'].touched) && addCarform.controls['zipcode'].errors"
+                    class="invalid-feedback">
+                    <div *ngIf="addCarform.controls['zipcode'].errors?.['required']">Field Required</div>
+                  </div>
+            </div>
+        </div>
+
+
+
+            <div class="col-lg-12 d-flex">
+                <div class="col-lg-6 p-2">
+                  <label>Upload Images <span class="mandatory">*</span></label>
+
+                    <input type="file" id="myFile"  (change)="onFileSelect($event)" class="form-control form-control-sm-sm" multiple>
+                </div>
+            </div>
+            <div class="col-lg-12 d-flex">
+                <div class="col-lg-8 p-2">
+                    <button class="btn btn-dark " [disabled]="!addCarform.valid" (click)="submit()">Submit</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>

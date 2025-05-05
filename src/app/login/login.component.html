@@ -1,0 +1,51 @@
+<div class="container-fluid ps-md-0">
+  <div class="row g-0 ">
+    <div class="d-none d-md-flex col-md-8 col-lg-8 bg-image pl-2"></div>
+    <div class="col-md-4 col-lg-4" style="background-color: rgb(235, 174, 95);">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container" style="background-color: rgb(235, 182, 113);">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="login-heading mb-4"><b>Login</b></h3>
+
+              <form [formGroup]="loginForm">
+                <div class=" mb-3">
+                  <label>Email ID</label>
+                  <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email ID"
+                    [ngClass]="{ 'is-invalid': (submitted || loginForm.controls['email'].touched) && loginForm.controls['email'].errors }">
+                  <div *ngIf="(submitted ||loginForm.controls['email'].touched) && loginForm.controls['email'].errors"
+                    class="invalid-feedback">
+                    <div *ngIf="loginForm.controls['email'].errors?.['required']">Email Required</div>
+                  </div>
+
+                </div>
+                <div class="mb-3">
+                  <label>Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="password"
+                    placeholder="Password"
+                    [ngClass]="{ 'is-invalid': (submitted || loginForm.controls['password'].touched) && loginForm.controls['password'].errors }">
+                  <div
+                    *ngIf="(submitted ||loginForm.controls['password'].touched) && loginForm.controls['password'].errors"
+                    class="invalid-feedback">
+                    <div *ngIf="loginForm.controls['password'].errors?.['required']">Password Required</div>
+                  </div>
+                </div>
+                <div class="float-right">
+                  <!-- <a class="small">Forgot password?</a> -->
+                  <a class="small" style="padding-left:120px" [routerLink]="['/signup']">SignUp</a>
+
+                </div>
+                <div class="text-center pt-2">
+                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit"
+                    (click)="submit()">Login</button>
+
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

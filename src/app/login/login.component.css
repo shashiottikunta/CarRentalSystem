@@ -1,0 +1,31 @@
+
+.login {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('src\assets\car-rental-business-concept-with-various-cars-model-free-vector.jpg');
+  background-size: contain;
+ 
+}
+
+.login-heading {
+  font-weight: 300;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+.eye-icon {
+	float: right;
+    margin-top: -30px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+

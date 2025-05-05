@@ -1,0 +1,103 @@
+
+
+<div class="col-lg-12 row">
+  <div class="search-box col-lg-3">
+    <input type="text" placeholder="Search Cars....">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </div>
+  <div class="search-box col-lg-3">
+    <input type="text" placeholder="Search cars by State....">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </div>
+  <div class="search-box col-lg-3">
+    <input type="text" placeholder="Search Cars by....">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </div>
+ 
+</div>
+
+  <div class="container">
+    <h4>Cars List</h4>
+    <div class="row">
+      <div class="col-md-12 mb-3" *ngFor="let car of carList">
+        <div class="card h-100">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img [src]="getImageUrl(car.images[0])" class="card-img" alt="car image">
+            </div>
+            <div class="col-md-3">
+              <div class="card-body">
+                <h5 class="card-title">{{ car.car.name }}</h5>
+                <p class="card-text"><strong>Registration Number:</strong> {{ car.car.registration_number }}</p>
+                <p class="card-text"><strong>Price Per Day:</strong> {{ car.car.price_per_day }}</p>
+                </div>
+              
+            </div>
+            <div class="col-md-3">
+                <div class="card-body">
+                    <p class="card-text"><strong>Pick Up Location</strong> </p>
+                    <h5 class="card-title">{{ car.car.name }}</h5>
+                    <p class="card-text"><strong>Registration Number:</strong> {{ car.car.registration_number }}</p>
+                    <p class="card-text"><strong>Price Per Day:</strong> {{ car.car.price_per_day }}</p>
+                   </div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center" style ="padding-top: 5%;">
+                  <button class="btn-booknow" (click)="showModal(car.car)" >Book Ride</button>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div bsModal #data="bs-modal" class="modal fade" id="modal" role="dialog"
+  [config]="{backdrop: 'static'}" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><strong>Vehicle Pick Up Deatils</strong></h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form">
+          <div class="d-flex">
+              <div class="col-lg-11 p-0">
+                  <div class="row d-flex col-lg-12 m-0 p-0">
+                      <div class="col-lg-12 p-2 d-flex">
+                        <div class="col-lg-6 p-2">
+                          <label>Start Date <span class="mandatory">*</span></label>
+                          <input class="form-control"  formControlName="startDate" placeholder="Start Date" bsDatepicker
+                          [ngClass]="{ 'is-invalid': (submitted || form.controls['startDate'].touched) && form.controls['startDate'].errors }">
+                          <div *ngIf="(submitted ||form.controls['startDate'].touched) && form.controls['startDate'].errors"
+                          class="invalid-feedback">
+                          <div *ngIf="form.controls['startDate'].errors?.['required']">Field Required</div>
+                        </div>
+                        </div>
+                        <div class="col-lg-6 p-2">
+                          <label>Start Date <span class="mandatory">*</span></label>
+                          <input class="form-control"  formControlName="endDate" placeholder="End Date" bsDatepicker (focusout)="getDates(form.value, details?.price_per_day)"
+                          [ngClass]="{ 'is-invalid': (submitted || form.controls['endDate'].touched) && form.controls['endDate'].errors }">
+                          <div *ngIf="(submitted ||form.controls['endDate'].touched) && form.controls['endDate'].errors"
+                          class="invalid-feedback">
+                          <div *ngIf="form.controls['endDate'].errors?.['required']">Field Required</div>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 p-2 d-flex">
+                        <b>Price Per Day : {{details?.price_per_day}}</b>
+                        </div>
+                    
+                  </div>
+              </div>
+          </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  (click)="submit()">Save</button>
+        <button type="button" class="btn btn-secondary" (click)="hideModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
